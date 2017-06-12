@@ -1,0 +1,36 @@
+@startuml
+abstract class Cafe.CaffeinBevarage{
+    prepareRecipe()
+    boilWater()
+    brew()
+    pourInCup()
+    addCondiments()
+}
+abstract class Cafe.CaffeinBevarageWithHook{
+    prepareRecipe()
+    boilWater()
+    brew()
+    pourInCup()
+    addCondiments()
+    customerWantsCondiments()
+}   
+class Cafe.BevarageTest
+class Cafe.Coffee{
+    brew()
+    addCondiments()
+}
+class Cafe.CoffeeWithHook{
+    brew()
+    addCondiments()
+    customerWantsCondiments(): boolean
+    getUserInput()
+}
+class Cafe.Tea{
+    brew()
+    addCondiments()
+}
+
+Cafe.CaffeinBevarage <|-- Cafe.Coffee
+Cafe.CaffeinBevarageWithHook <|-- Cafe.CoffeeWithHook
+Cafe.CaffeinBevarage <|-- Cafe.Tea
+@enduml
